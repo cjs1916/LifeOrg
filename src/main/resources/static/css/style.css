@@ -18,11 +18,11 @@ html {
 
 .container {
     width: 100%;
-    height: 100vh;
-    background-color: #12121f;
+    height: 100%;
+    background-color: peachpuff;
     color: white;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -96,9 +96,16 @@ html {
 }
 
 
+.fill-div {
+    display: block;
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+}
+
 .calendar {
-    width: 45rem;
-    height: 52rem;
+    width: 67.5rem; /* multiplied by 1.5 */
+    height: 53rem; /* multiplied by 1.5 */
     background-color: #222227;
     box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.4);
 }
@@ -144,7 +151,7 @@ html {
     font-size: 1.5rem;
     font-weight: 400;
     letter-spacing: 0.1rem;
-    width: calc(44.2rem/7);
+    width: calc(66.3rem/7); /* multiplied by 1.5 */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -161,7 +168,7 @@ html {
 .days div {
     font-size: 1.4rem;
     margin: 0.3rem;
-    width: calc(40.2rem/7);
+    width: calc(62.5rem/7); /* multiplied by 1.5 */
     height: 5rem;
     display: flex;
     justify-content: center;

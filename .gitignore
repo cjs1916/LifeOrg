@@ -31,3 +31,5 @@ build/
 
 ### VS Code ###
 .vscode/
+
+src/main/java/com/project/life/models/user/User.java~Adding TodoStuff
