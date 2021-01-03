@@ -24,6 +24,7 @@ import javax.validation.constraints.Size;
 
 import com.project.life.models.chat.Message;
 import com.project.life.models.chat.Room;
+import com.project.life.models.event.Event;
 import com.project.life.models.movie.Movie;
 import com.project.life.models.note.Note;
 import com.project.life.models.todo.ToDo;
@@ -98,7 +99,12 @@ public class User {
     )
     private List<Room> roomsAttend;
 // Chat Widget Relationship <End>
-	
+
+//  Calendar Widget Relationship <Start>
+    @OneToMany(mappedBy="user", fetch=FetchType.LAZY)
+    private List<Event> events;
+//	Calendar Widget Relationship <End>
+    
 	public User() {
     }
 	
@@ -106,7 +112,87 @@ public class User {
 	
 	
 	
-    public List<Note> getNotes() {
+    public List<Movie> getMovies() {
+		return movies;
+	}
+
+
+
+
+
+	public void setMovies(List<Movie> movies) {
+		this.movies = movies;
+	}
+
+
+
+
+
+	public List<Room> getRoomsCreated() {
+		return roomsCreated;
+	}
+
+
+
+
+
+	public void setRoomsCreated(List<Room> roomsCreated) {
+		this.roomsCreated = roomsCreated;
+	}
+
+
+
+
+
+	public List<Message> getMessages() {
+		return messages;
+	}
+
+
+
+
+
+	public void setMessages(List<Message> messages) {
+		this.messages = messages;
+	}
+
+
+
+
+
+	public List<Room> getRoomsAttend() {
+		return roomsAttend;
+	}
+
+
+
+
+
+	public void setRoomsAttend(List<Room> roomsAttend) {
+		this.roomsAttend = roomsAttend;
+	}
+
+
+
+
+
+	public List<Event> getEvents() {
+		return events;
+	}
+
+
+
+
+
+	public void setEvents(List<Event> events) {
+		this.events = events;
+	}
+
+
+
+
+
+	public List<Note> getNotes() {
 		return notes;
 	}
 
