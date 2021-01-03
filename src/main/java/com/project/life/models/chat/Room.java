@@ -1,4 +1,4 @@
-package com.jhan.models;
+package com.project.life.models.chat;
 
 import java.util.Date;
 import java.util.List;
@@ -19,6 +19,8 @@ import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
+
+import com.project.life.models.user.User;
 
 @Entity
 @Table(name="rooms")
