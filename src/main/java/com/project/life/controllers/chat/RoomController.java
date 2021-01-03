@@ -1,4 +1,4 @@
-package com.jhan.controllers;
+package com.project.life.controllers.chat;
 
 import java.util.List;
 
@@ -13,18 +13,19 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.jhan.models.Message;
-import com.jhan.models.Room;
-import com.jhan.models.User;
-import com.jhan.services.RoomServ;
-import com.jhan.services.UserServ;
+import com.project.life.models.chat.Message;
+import com.project.life.models.chat.Room;
+import com.project.life.models.user.User;
+import com.project.life.services.chat.RoomServ;
+import com.project.life.services.user.UserService;
+
 
 @Controller
 public class RoomController {
-	private final UserServ uServ;
+	private final UserService uServ;
 	private final RoomServ rServ;
 	
-	public RoomController(UserServ uServ, RoomServ rServ) {
+	public RoomController(UserService uServ, RoomServ rServ) {
 		this.uServ = uServ;
 		this.rServ = rServ;
 	}

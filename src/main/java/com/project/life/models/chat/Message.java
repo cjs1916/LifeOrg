@@ -1,4 +1,4 @@
-package com.jhan.models;
+package com.project.life.models.chat;
 
 import java.util.Date;
 
@@ -13,6 +13,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
+
+import com.project.life.models.user.User;
 
 @Entity
 @Table(name="messages")
