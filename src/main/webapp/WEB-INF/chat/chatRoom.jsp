@@ -19,7 +19,10 @@
 </head>
 <body>
 <div class="container">
-    <h3 class="text-center"><c:out value="${thisRoom.roomName}"/></h3>
+	<div class="d-flex justify-content-between">
+	    <h3 class="text-center"><c:out value="${thisRoom.roomName}"/></h3>
+	    <a href="/rooms" style="padding-top:30px;">Chat Main</a>
+	</div>
     <div class="messaging">
       <div class="inbox_msg">
         <div class="inbox_people">

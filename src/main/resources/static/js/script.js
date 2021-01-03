@@ -40,9 +40,9 @@ const renderCalendar = () => {
     
     for (let i = 1; i <= lastDay; i++) {
         if(i === new Date().getDate() && date.getMonth() === new Date().getMonth()) {
-            days += `<div><button class="fill-div" type="button" data-toggle="modal" style="background-color: transparent;" data-target="#exampleModal" data-whatever="${date.getFullYear()}-${months[date.getMonth()]}-${i}">${i}</button></div>`;
+            days += `<div><button class="fill-div btn btn-default" type="button" data-toggle="modal" style="background-color: transparent;" data-target="#exampleModal" data-whatever="${date.getFullYear()}-${months[date.getMonth()]}-${i}">${i}</button></div>`;
         } else {
-            days += `<div><button class="fill-div" type="button" data-toggle="modal" style="background-color: transparent;" data-target="#exampleModal" data-whatever="${date.getFullYear()}-${months[date.getMonth()]}-${i}">${i}</button></div>`;
+            days += `<div><button class="fill-div btn btn-default" type="button" data-toggle="modal" style="background-color: transparent;" data-target="#exampleModal" data-whatever="${date.getFullYear()}-${months[date.getMonth()]}-${i}">${i}</button></div>`;
         }
     }
     
