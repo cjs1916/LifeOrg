@@ -2,11 +2,18 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Roboto Mono', monospace;
+    font-family: sans-serif;
 }
 
 html {
     font-size: 62.5%;
+}
+
+.wrapper {
+	padding:50px;
+	display:flex;
+	flex-wrap:wrap;
+	margin:50px auto;
 }
 
 .container {
@@ -18,6 +25,76 @@ html {
     justify-content: space-between;
     align-items: center;
 }
+
+.weatherWidget {
+	height:300px;
+	width:300px;
+	background: linear-gradient(rgb(38, 104, 236), rgb(48, 62, 143));
+	display:flex;
+	border-radius:10px;
+	align-items:center;
+	flex-direction:column;
+	padding:20px;
+	margin:10px;
+	color:white;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.location, .temperature {
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.temperature {
+    flex-direction: column;
+}
+
+.degree-section {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.degree-section span {
+    font-size: 20px;
+}
+
+.degree-section h2 {
+    font-size: 20px;
+}
+
+.addWidget {
+	height: 300px;
+	width: 300px;
+	display:flex;
+	border-radius:10px;
+	justify-content:center;
+	align-items:center;
+	flex-direction:column;
+	padding:20px;
+	margin:10px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.addWidget h3 {
+	color:gray;
+}
+
+.noteWidget {
+	height: 300px;
+	width: 300px;
+	display:flex;
+	border-radius:10px;
+	justify-content:start;
+	align-items:center;
+	flex-direction:column;
+	padding:20px;
+	margin:10px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
 
 .fill-div {
     display: block;
