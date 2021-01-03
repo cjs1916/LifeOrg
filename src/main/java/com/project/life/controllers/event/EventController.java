@@ -1,4 +1,4 @@
-package com.project.life.controllers;
+package com.project.life.controllers.event;
 
 import javax.validation.Valid;
 
@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.project.life.models.Event;
-import com.project.life.services.EventServ;
+import com.project.life.models.event.Event;
+import com.project.life.services.event.EventServ;
 
 @Controller
 @RequestMapping("/events")
@@ -23,13 +23,13 @@ public class EventController {
 	
 	@RequestMapping("")
 	public String eventHome(@ModelAttribute("event") Event event) {
-		return "eventHome.jsp";
+		return "/event/eventHome.jsp";
 	}
 	
 	@RequestMapping(value="/new", method=RequestMethod.POST)
 	public String createEvent(@Valid @ModelAttribute("event") Event event, BindingResult result) {
 		if (result.hasErrors()) {
-			return "eventHome.jsp";
+			return "/event/eventHome.jsp";
 		} else {
 			eServ.createEvent(event);
 			return "redirect:/events";

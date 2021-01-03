@@ -2,26 +2,110 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Roboto Mono', monospace;
+    font-family: sans-serif;
 }
 
 html {
     font-size: 62.5%;
 }
 
+.wrapper {
+	padding:50px;
+	display:flex;
+	flex-wrap:wrap;
+	margin:50px auto;
+}
+
 .container {
     width: 100%;
-    height: 100vh;
-    background-color: #12121f;
+    height: 100%;
+    background-color: peachpuff;
     color: white;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 
+.weatherWidget {
+	height:300px;
+	width:300px;
+	background: linear-gradient(rgb(38, 104, 236), rgb(48, 62, 143));
+	display:flex;
+	border-radius:10px;
+	align-items:center;
+	flex-direction:column;
+	padding:20px;
+	margin:10px;
+	color:white;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.location, .temperature {
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.temperature {
+    flex-direction: column;
+}
+
+.degree-section {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.degree-section span {
+    font-size: 20px;
+}
+
+.degree-section h2 {
+    font-size: 20px;
+}
+
+.addWidget {
+	height: 300px;
+	width: 300px;
+	display:flex;
+	border-radius:10px;
+	justify-content:center;
+	align-items:center;
+	flex-direction:column;
+	padding:20px;
+	margin:10px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.addWidget h3 {
+	color:gray;
+}
+
+.noteWidget {
+	height: 300px;
+	width: 300px;
+	display:flex;
+	border-radius:10px;
+	justify-content:start;
+	align-items:center;
+	flex-direction:column;
+	padding:20px;
+	margin:10px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+.fill-div {
+    display: block;
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+}
+
 .calendar {
-    width: 45rem;
-    height: 52rem;
+    width: 67.5rem; /* multiplied by 1.5 */
+    height: 53rem; /* multiplied by 1.5 */
     background-color: #222227;
     box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.4);
 }
@@ -67,7 +151,7 @@ html {
     font-size: 1.5rem;
     font-weight: 400;
     letter-spacing: 0.1rem;
-    width: calc(44.2rem/7);
+    width: calc(66.3rem/7); /* multiplied by 1.5 */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -84,7 +168,7 @@ html {
 .days div {
     font-size: 1.4rem;
     margin: 0.3rem;
-    width: calc(40.2rem/7);
+    width: calc(62.5rem/7); /* multiplied by 1.5 */
     height: 5rem;
     display: flex;
     justify-content: center;

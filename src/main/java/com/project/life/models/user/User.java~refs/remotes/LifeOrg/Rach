@@ -1,12 +1,16 @@
-package com.project.life.models;
+package com.project.life.models.user;
 
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
@@ -14,6 +18,8 @@ import javax.persistence.Transient;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+
+import com.project.life.models.todo.ToDo;
 
 @Entity
 
@@ -37,11 +43,16 @@ public class User {
     private String firstName;
     @NotEmpty(message="Last Name is required")
     private String lastName;
+	@OneToMany(mappedBy="creator",fetch=FetchType.LAZY,cascade = CascadeType.ALL)
+    private List<ToDo> toDos;
+	
+	private Boolean weatherBool;
+	private Boolean toDoBool;
+	private Boolean calendarBool;
+	private Boolean noteBool;
+	private Boolean movieBool;
+	private Boolean transpBool;
 
-
-	
-	
-	
 	public User() {
     }
     public String getFirstName() {
@@ -99,24 +110,25 @@ public class User {
 		this.passwordConfirmation = passwordConfirmation;
 	}
 
-
 	public Date getCreatedAt() {
 		return createdAt;
 	}
-
-
 	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
 	}
-
-
 	public Date getUpdatedAt() {
 		return updatedAt;
 	}
-
-
+	
+	
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
+	}
+	public List<ToDo> getToDos() {
+		return toDos;
+	}
+	public void setToDos(List<ToDo> toDos) {
+		this.toDos = toDos;
 	}
 	@PreUpdate
     protected void onUpdate(){
