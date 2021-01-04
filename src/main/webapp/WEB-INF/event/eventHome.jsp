@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page isErrorPage="true" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,48 +29,40 @@
                 <i class="fas fa-angle-right next"></i>
             </div>
             <div class="weekdays">
-                <div>Sun</div>
+                <div style="color:red;">Sun</div>
                 <div>Mon</div>
                 <div>Tue</div>
                 <div>Wed</div>
                 <div>Thu</div>
                 <div>Fri</div>
-                <div>Sat</div>
+                <div style="color:blue;">Sat</div>
             </div>
             <div class="days">
                 
             </div>
         </div>
-        <div class="event-list" >
+        <div class="event-list" style="color:black;">
         	<h3 class="text-center">Event List</h3>
         	<table class="table table-dark">
 			  <thead>
 			    <tr>
-			      <th scope="col">#</th>
-			      <th scope="col">First</th>
-			      <th scope="col">Last</th>
-			      <th scope="col">Handle</th>
+			      <th scope="col">Date</th>
+			      <th scope="col">Event</th>
+			      <th scope="col">Description</th>
+			      <th scope="col">Location</th>
+			      
 			    </tr>
 			  </thead>
+			  
 			  <tbody>
+			  <c:forEach var="event" items="${thisUser.events}">
 			    <tr>
-			      <th scope="row">1</th>
-			      <td>Mark</td>
-			      <td>Otto</td>
-			      <td>@mdo</td>
+			      <th scope="row">${event.date}</th>
+			      <td>${event.name}</td>
+			      <td>${event.description}</td>
+			      <td>${event.location}</td>
 			    </tr>
-			    <tr>
-			      <th scope="row">2</th>
-			      <td>Jacob</td>
-			      <td>Thornton</td>
-			      <td>@fat</td>
-			    </tr>
-			    <tr>
-			      <th scope="row">3</th>
-			      <td>Larry</td>
-			      <td>the Bird</td>
-			      <td>@twitter</td>
-			    </tr>
+			  </c:forEach>  
 			  </tbody>
 			</table>
         </div>
