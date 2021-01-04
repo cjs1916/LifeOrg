@@ -55,6 +55,14 @@ public class Event {
 		
 	}
 	
+	public Event(User user, String name, String description, String location, String date) {
+		this.name = name;
+		this.description = description;
+		this.location = location;
+		this.date = date;
+		this.user = user;
+	}
+	
 	public User getUser() {
 		return user;
 	}

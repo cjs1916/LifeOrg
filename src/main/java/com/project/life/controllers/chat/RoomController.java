@@ -47,7 +47,7 @@ public class RoomController {
 		}
 	}
 	
-	@RequestMapping(value="/rooms/{id}")
+	@RequestMapping("/rooms/{id}")
 	public String chatRoom(@PathVariable("id") Long id, @ModelAttribute("message") Message message, Model model, HttpSession session) {
 		List<Room> allRooms = rServ.allRooms();
 		Room thisRoom = rServ.findRoom(id);
