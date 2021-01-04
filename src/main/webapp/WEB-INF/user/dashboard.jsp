@@ -7,7 +7,7 @@
 <html>
 	<head>
 		<meta charset="ISO-8859-1">
-		<title>Welcome <c:out value="${user.firstName} ${user.lastName}" /></title>
+		<title>Welcome, <c:out value="${user.firstName}" /></title>
 		<link rel="stylesheet" href="/css/style.css" />
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -16,16 +16,31 @@
 	
 	<body>
 		<div class="header">
-			<h1>
-				Welcome,
-				<c:out value="${user.firstName} ${user.lastName}" />
-			</h1>
-			<p>
-				<a href="/logout">Click Here To Log Out</a>
-			</p>
+			<img class="brandIcon" src="img/icon.png">
+			
+			<!-- nav links -->
+			<ul class="nav-links">
+	            <li><a href="/dashboard">Home</a></li>
+	            <li><a href="/rooms">Chat</a>
+	            <li><a href="/events">Calendar</a></li>
+	            <li><a href="#">Notes</a></li>
+	            <li><a href="/todo">Lists</a></li>
+	            <li><a href="/movies">Movies</a></li>
+	            <li><a href="#">Weather</a></li>
+	            <li><a href="/logout">Logout</a></li>
+	        </ul>
+	        
+	        <!-- burger icon for mobile devices -->
+	        <div class="burger">
+	            <div class="line1"></div>
+	            <div class="line2"></div>
+	            <div class="line3"></div>
+	        </div>
 		</div>
-		
+
 		<div class="wrapper">
+		
+		<div class="main">
 		
 			<!-- Weather Widget -->
 			<div class="weatherWidget">
@@ -93,14 +108,12 @@
 			</div>
 		</div>
 		</c:forEach>
-			
-			<div>
-				<p>
-					Go to your To Do Lists-> <a href="/todo">Click Here</a>
-				</p>
-			</div>
+	
 		</div>
 		
+		</div>
+		
+		<script src="js/dashboard.js"></script>
 	    <script type="text/javascript">
 		    // function for addNote modal
 		    $('#addNoteModal').on('show.bs.modal', function (e) {
