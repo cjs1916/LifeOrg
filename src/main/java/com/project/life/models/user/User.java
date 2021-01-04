@@ -188,26 +188,7 @@ public class User {
 
 
 
-	public void setMessages(List<Message> messages) {
-		this.messages = messages;
-	}
-
-
-
-
-
-	public List<Room> getRoomsAttend() {
-		return roomsAttend;
-	}
-
-
-
-
-
-	public void setRoomsAttend(List<Room> roomsAttend) {
-		this.roomsAttend = roomsAttend;
-	}
-
+	
 
 
 
@@ -420,13 +401,6 @@ public class User {
 		this.updatedAt = updatedAt;
 	}
 	
-	
-	public List<Movie> getMovies() {
-		return movies;
-	}
-
-
-
 
 
 	public List<ToDo> getToDos() {
@@ -445,25 +419,7 @@ public class User {
 
 
 
-	public List<Room> getRoomsCreated() {
-		return roomsCreated;
-	}
 
-
-
-
-
-	public void setRoomsCreated(List<Room> roomsCreated) {
-		this.roomsCreated = roomsCreated;
-	}
-
-
-
-
-
-	public List<Message> getMessages() {
-		return messages;
-	}
 
 
 
@@ -493,10 +449,6 @@ public class User {
 
 
 
-	public void setMovies(List<Movie> movies) {
-		this.movies = movies;
-	}
-	
 }
 //package com.project.life.models.user;
 //

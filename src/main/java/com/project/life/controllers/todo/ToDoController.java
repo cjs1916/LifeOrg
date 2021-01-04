@@ -83,10 +83,11 @@ public class ToDoController {
 		itemService.saveItem(item);
 		List<Item> items= toDo.getItems();
 		System.out.println(items);
-		item.setList(toDo);
 		items.add(item);
 		System.out.println(items);
 		toDo.setItems(items);
+		item.setList(toDo);
+		System.out.println(item.getContent());
 		toDoService.saveToDo(toDo);
 		return "redirect:/todo/{id}";
 	}
