@@ -49,10 +49,14 @@ public class WidgetController {
 	// display main user/dashboard.jsp template (This method makes Weather API call)
 	@GetMapping("/dashboard")
 	public String dashboard(@ModelAttribute("note") Note note, Model model, HttpSession session) {
-				
+		
 		// for Weather API call
 		try {
-			URL url = new URL("http://api.openweathermap.org/data/2.5/weather?q=Minneapolis&units=imperial&appid=36d90c006e27a50453c14229ce3ab55e");
+			Long thisUserId = (Long) session.getAttribute("userId");
+			User user = userService.findUserById(thisUserId);	
+			String userCity = user.getCity();
+//			String userState = user.getState();
+			URL url = new URL("http://api.openweathermap.org/data/2.5/weather?q=" + userCity + "&units=imperial&appid=36d90c006e27a50453c14229ce3ab55e");
 			connection = (HttpURLConnection) url.openConnection();
 			
 			// Request setup
@@ -81,7 +85,7 @@ public class WidgetController {
 			
 			JSONObject jsonObject = new JSONObject(responseContent.toString());
 //			System.out.println("Result after Reading JSON Response:");
-//			System.out.println("City- " + jsonObject.getString("name"));
+			System.out.println("City- " + jsonObject.getString("name"));
 			String city = jsonObject.getString("name");
 			model.addAttribute("city", city);
 			
@@ -102,8 +106,8 @@ public class WidgetController {
 			float floatTemp = jsonObject3.getFloat("temp");
 			int currentTemp = (int) Math.floor(floatTemp);
 			model.addAttribute("currentTemp", currentTemp);
-			Long userId = (Long) session.getAttribute("userId");
-			User user = userService.findUserById(userId);
+//			Long userId = (Long) session.getAttribute("userId");
+//			User user = userService.findUserById(userId);
 			model.addAttribute("user", user);
 			return "user/dashboard.jsp";
 			
