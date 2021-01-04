@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.project.life.models.user.User;
 import com.project.life.services.user.UserService;
@@ -31,7 +32,12 @@ public class UserController {
 	
 	@RequestMapping("/")
 	public String logreg(@ModelAttribute("user") User user) {
-		return "user/logreg.jsp";
+		return "user/register.jsp";
+	}
+	
+	@RequestMapping("/login")
+	public String loginPage() {
+		return "user/login.jsp";
 	}
 
 	
@@ -40,7 +46,7 @@ public class UserController {
 	public String registerUser(@Valid @ModelAttribute("user") User user, BindingResult result, HttpSession session) {
 		userValidator.validate(user, result);
 		if (result.hasErrors()) {
-			return "user/logreg.jsp";
+			return "user/register.jsp";
 		}
 		User u = userService.registerUser(user);
 		session.setAttribute("userId", u.getId());
@@ -50,7 +56,7 @@ public class UserController {
 	
 	// login
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String loginUser(@ModelAttribute("user") User user,@RequestParam("email") String email, @RequestParam("password") String password, Model model,
+	public String loginUser(@RequestParam("email") String email, @RequestParam("password") String password, Model model,
 			HttpSession session) {
 
 		boolean isAuth = userService.authenticateUser(email, password);
@@ -60,7 +66,7 @@ public class UserController {
 			return "redirect:/dashboard";
 		} else {
 			model.addAttribute("error", "Invalid email/password. Try again.");
-			return "user/logreg.jsp";
+			return "/user/login.jsp";
 		}
 	}
 	
@@ -68,6 +74,6 @@ public class UserController {
 	@RequestMapping("/logout")
 	public String logout(HttpSession session) {
 		session.invalidate();
-		return "redirect:/";
+		return "redirect:/login";
 	}
 }
