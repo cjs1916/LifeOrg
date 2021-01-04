@@ -299,21 +299,9 @@ public class User {
 	}
 	
 	
-	public List<ToDo> getToDos() {
-		return toDos;
+	public List<Movie> getMovies() {
+		return movies;
 	}
-	
-	
-	public void setToDos(List<ToDo> toDos) {
-		this.toDos = toDos;
-	}
-	
-	
-	@PreUpdate
-    protected void onUpdate(){
-        this.updatedAt = new Date();
-    }
-}
 
 //package com.project.life.models.user;
 //

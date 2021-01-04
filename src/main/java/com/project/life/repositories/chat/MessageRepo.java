@@ -1,6 +1,6 @@
 package com.project.life.repositories.chat;
 
-import java.util.List;
+import java.util.List; 
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;

@@ -1,8 +1,13 @@
 package com.project.life.services.chat;
 
-import java.util.List;
+import java.util.List; 
 
 import org.springframework.stereotype.Service;
+import com.project.life.repositories.chat.RoomRepo;
+import com.project.life.repositories.chat.MessageRepo;
+import com.project.life.models.chat.Room;
+import com.project.life.models.user.User;
+import com.project.life.models.chat.Message;
 
 import com.project.life.models.chat.Message;
 import com.project.life.models.chat.Room;

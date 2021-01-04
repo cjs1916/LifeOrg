@@ -17,12 +17,12 @@
 			
 			<input type="submit" value="Click here"/></form>
 	</div>
-	<c:if test="${isEmpty=false}">
+	<c:if test="${isEmpty==false}">
 		<c:forEach items="${toDos}" var="list">
 				<a href="/todo/${list.id}">List ${list.id} </a>
 		</c:forEach>
 	</c:if>
-	<c:if test="${isEmpty=true}">
+	<c:if test="${isEmpty==true}">
 			<p>No items yet!</p>
 			<p>Add an item</p>
 	</c:if>

@@ -33,7 +33,7 @@ function getMovies(searchText){
 
 function movieSelected(id){
   sessionStorage.setItem('movieId', id);
-  window.location = 'movie.html';
+  window.location = '/movies/details';
   return false;
 }
 
@@ -69,7 +69,16 @@ function getMovie(){
             ${movie.Plot}
             <hr>
             <a href="http://imdb.com/title/${movie.imdbID}" target="_blank" class="btn btn-primary">View IMDB</a>
-            <a href="index.html" class="btn btn-default">Go Back To Search</a>
+            <a href="/movies" class="btn btn-default">Go Back To Search</a>
+            <form action="/movies/favorite" method="post">
+            <input type="hidden" name="title"value="${movie.Title}"/>
+            <input type="hidden" name="releaseDate"value="${movie.Released}"/>
+            <input type="hidden" name="rating"value="${movie.Rated}"/>
+            <input type="hidden" name="poster"value="${movie.Poster}"/>
+            <input type="hidden" name="imdbId"value="${movie.imdbID}"/>
+            <br>
+            <input type="submit" value="Favorite" class="btn btn-primary"/>
+            </form>
           </div>
         </div>
       `;

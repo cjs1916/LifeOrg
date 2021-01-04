@@ -1,6 +1,6 @@
 package com.project.life.models.chat;
 
-import java.util.Date;
+import java.util.Date; 
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

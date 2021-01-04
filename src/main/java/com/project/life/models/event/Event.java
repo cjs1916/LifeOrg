@@ -1,5 +1,4 @@
 package com.project.life.models.event;
-
 import java.util.Date;
 
 import javax.persistence.Column;

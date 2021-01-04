@@ -47,9 +47,12 @@ public class ToDoController {
 	public String create(@ModelAttribute("toDo") ToDo toDo, HttpSession session) {
 		Long userId = (Long) session.getAttribute("userId");
 		User user = userService.findUserById(userId);
+		toDoService.saveToDo(toDo);
 		List<ToDo> toDos = user.getToDos();
 		toDos.add(toDo);
-		toDoService.saveToDo(toDo);
+		user.setToDos(toDos);
+		toDo.setCreator(user);
+		System.out.println(toDos);
 		userService.saveUser(user);
 		return "redirect:/todo";
 	}
