@@ -16,7 +16,30 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
-<body>
+<body style="background-color: #f8f8f8">
+
+	<div class="header">
+			<img class="brandIcon" src="img/icon.png">
+			
+			<!-- nav links -->
+			<ul class="nav-links">
+	            <li><a href="/dashboard">Home</a></li>
+	            <li><a href="/rooms">Chat</a>
+	            <li><a href="/events">Calendar</a></li>
+	            <li><a href="#">Notes</a></li>
+	            <li><a href="/todo">Lists</a></li>
+	            <li><a href="/movies">Movies</a></li>
+	            <li><a href="#">Weather</a></li>
+	            <li><a href="/logout">Logout</a></li>
+	        </ul>
+	        
+	        <!-- burger icon for mobile devices -->
+	        <div class="burger">
+	            <div class="line1"></div>
+	            <div class="line2"></div>
+	            <div class="line3"></div>
+	        </div>
+		</div>
     
     <div class="container">
         <div class="calendar">
@@ -108,7 +131,7 @@
     </div>
   </div>
 </div>
-
+	<script src="/js/dashboard.js"></script>
     <script src="/js/script.js"></script>
     <script type="text/javascript">
 	    $('#exampleModal').on('show.bs.modal', function (event) {

@@ -4,7 +4,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Quicksand;
+    font-family: "Poppins", sans-serif;
 }
 
 html {
@@ -55,33 +55,32 @@ nav {
     margin: 5px;
 }
 
-@media screen and (max-width:1200px) {
 
-    body {
-        overflow-x: hidden;
-    }
-
-    .nav-links {
-        position: absolute;
-        right: 0px;
-        height: 90vh;
-        top: 8vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        transform: translateX(100%);
-        transition: transform 0.5s ease-in;
-    }
-
-    .nav-links li {
-        opacity: 0;
-    }
-
-    .burger {
-        display: block;
-    }
+body {
+    overflow-x: hidden;
 }
+
+.nav-links {
+    position: absolute;
+    right: 0px;
+    height: 90vh;
+    top: 8vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in;
+}
+
+.nav-links li {
+    opacity: 0;
+}
+
+.burger {
+    display: block;
+}
+
 
 .nav-active {
     transform: translate(0%);
@@ -131,6 +130,7 @@ nav {
 	display:flex;
 	justify-content:space-between;
 	padding: 25px;
+	background-color: white;
 }
 
 .header a {
@@ -151,6 +151,10 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.icon {
+	height:80px;
 }
 
 .weatherWidget {
@@ -200,6 +204,7 @@ nav {
 	flex-direction:column;
 	padding:20px;
 	margin:10px;
+	background-color:white;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 

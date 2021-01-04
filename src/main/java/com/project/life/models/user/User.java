@@ -49,6 +49,7 @@ public class User {
 	@Transient
 	private String passwordConfirmation;
 	
+	@NotEmpty(message = "City cannot be empty!")
 	private String city;
 	
 	private String state;

@@ -14,7 +14,7 @@
     	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 	</head>
 	
-	<body>
+	<body style="font-family: 'Poppins', sans-serif; background-color: #f8f8f8">
 		<div class="header">
 			<img class="brandIcon" src="img/icon.png">
 			
@@ -45,7 +45,7 @@
 			<!-- Weather Widget -->
 			<div class="weatherWidget">
 				<div class="location">
-			        <h1 class="location-timezone">${city}</h1>
+			        <h1 class="location-timezone text-center">${city}, ${state}</h1>
 			    </div>
 		
 			    <div class="temperature">

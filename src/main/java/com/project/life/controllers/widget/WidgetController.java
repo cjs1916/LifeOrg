@@ -55,6 +55,9 @@ public class WidgetController {
 			Long thisUserId = (Long) session.getAttribute("userId");
 			User user = userService.findUserById(thisUserId);	
 			String userCity = user.getCity();
+			String userState = user.getState();
+			model.addAttribute("city", userCity);
+			model.addAttribute("state", userState);
 //			String userState = user.getState();
 			URL url = new URL("http://api.openweathermap.org/data/2.5/weather?q=" + userCity + "&units=imperial&appid=36d90c006e27a50453c14229ce3ab55e");
 			connection = (HttpURLConnection) url.openConnection();
@@ -84,16 +87,17 @@ public class WidgetController {
 			// if no errors, parse through JSON response and add to Model
 			
 			JSONObject jsonObject = new JSONObject(responseContent.toString());
-//			System.out.println("Result after Reading JSON Response:");
-			System.out.println("City- " + jsonObject.getString("name"));
-			String city = jsonObject.getString("name");
-			model.addAttribute("city", city);
+////			System.out.println("Result after Reading JSON Response:");
+//			System.out.println("City- " + jsonObject.getString("name"));
+//			String city = jsonObject.getString("name");
+//			model.addAttribute("city", city);
 			
 			JSONArray jsonArray = jsonObject.getJSONArray("weather");
 			
 			JSONObject jsonObject2 = jsonArray.getJSONObject(0);
 //			System.out.println("Description: " + jsonObject2.getString("description"));
 			String desc = jsonObject2.getString("description");
+			System.out.println("this is how the weather is: " + desc);
 			model.addAttribute("desc", desc);
 			
 //			System.out.println("Description 2: " + jsonObject2.getString("main"));

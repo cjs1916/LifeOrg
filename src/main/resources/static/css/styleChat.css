@@ -10,11 +10,11 @@
 
 .header {
 	width: 100vw;
-	height:15vh;
 	display:flex;
 	justify-content:space-between;
 	align-items: center;
-	padding: 25px;
+	padding: 10px;
+	background-color: white;
 }
 
 .header a {
@@ -66,33 +66,32 @@ nav {
     margin: 5px;
 }
 
-@media screen and (max-width:1200px) {
 
-    body {
-        overflow-x: hidden;
-    }
-
-    .nav-links {
-        position: absolute;
-        right: 0px;
-        height: 90vh;
-        top: 8vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        transform: translateX(100%);
-        transition: transform 0.5s ease-in;
-    }
-
-    .nav-links li {
-        opacity: 0;
-    }
-
-    .burger {
-        display: block;
-    }
+body {
+    overflow-x: hidden;
 }
+
+.nav-links {
+    position: absolute;
+    right: 0px;
+    height: 90vh;
+    top: 8vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in;
+}
+
+.nav-links li {
+    opacity: 0;
+}
+
+.burger {
+    display: block;
+}
+
 
 .nav-active {
     transform: translate(0%);
