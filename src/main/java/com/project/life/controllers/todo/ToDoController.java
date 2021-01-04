@@ -7,6 +7,7 @@ import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,10 +24,12 @@ import com.project.life.services.user.UserService;
 public class ToDoController {
 	private final ToDoService toDoService;
 	private final UserService userService;
+	private final ItemService itemService;
 
 	public ToDoController(ToDoService toDoService, ItemService itemService, UserService userService) {
 		this.toDoService = toDoService;
 		this.userService = userService;
+		this.itemService = itemService;
 	}
 
 	@RequestMapping("/todo")
@@ -58,7 +61,7 @@ public class ToDoController {
 	}
 
 	@RequestMapping("/todo/{id}")
-	public String newToDo(@PathVariable("id") Long id, Model model, HttpSession session) {
+	public String newToDo(@PathVariable("id") Long id,@ModelAttribute("item")Item item, Model model, HttpSession session) {
 		ToDo toDo = toDoService.findToDoById(id);
 		List<Item> items = toDo.getItems();
 		Boolean isEmpty = items.isEmpty();
@@ -66,13 +69,38 @@ public class ToDoController {
 		Long userId = (Long) session.getAttribute("userId");
 		User creator = toDo.getCreator();
 		Long creatorId = creator.getId();
-		if (userId != creatorId) {
-			return "redirect:/todo";
-		}
+//		if (userId != creatorId) {
+//			return "redirect:/todo";
+//		}
 		model.addAttribute("isEmpty", isEmpty);
 		model.addAttribute("items", items);
 		model.addAttribute("toDo", toDo);
 		return "todo/new_todo.jsp";
+	}
+	@RequestMapping(value = "/todo/{id}/addItem", method = RequestMethod.POST)
+	public String addItem(@PathVariable("id") Long id, @ModelAttribute("item") Item item, HttpSession session) {
+		ToDo toDo = toDoService.findToDoById(id);
+		itemService.saveItem(item);
+		List<Item> items= toDo.getItems();
+		System.out.println(items);
+		item.setList(toDo);
+		items.add(item);
+		System.out.println(items);
+		toDo.setItems(items);
+		toDoService.saveToDo(toDo);
+		return "redirect:/todo/{id}";
+	}
+	@GetMapping("/todo/{id}/remove/{item_id}")
+	public String removeStudent(@PathVariable("id") Long id, @PathVariable("item_id") Long item_Id) {
+		ToDo toDo = toDoService.findToDoById(id);
+		Item item = itemService.findItemById(item_Id);
+		List<Item> items = toDo.getItems();
+		items.remove(item);
+		toDo.setItems(items);
+		itemService.deleteItem(item);
+		toDoService.saveToDo(toDo);
+		System.out.println(items+"items");
+		return "redirect:/todo/"+id;
 	}
 
 }

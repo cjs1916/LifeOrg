@@ -12,13 +12,13 @@ import com.project.life.repositories.user.UserRepository;
 
 @Service
 public class ToDoService {
-	private final ToDoRepository toDoRepository;
+	private ToDoRepository toDoRepository;
 
 	public ToDoService(ToDoRepository toDoRepository) {
 		this.toDoRepository = toDoRepository;
 	}
 
-	public ToDo saveToDo(ToDo toDo) {
+	public  ToDo saveToDo(ToDo toDo) {
 		return toDoRepository.save(toDo);
 
 	}

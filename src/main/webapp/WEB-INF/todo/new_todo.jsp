@@ -10,11 +10,11 @@
 <title>Add Item</title>
 </head>
 <body>
-	<form:form action="/addItem" method="post" modelAttribute="course">
+	<form:form action="/todo/${toDo.id}/addItem" method="post" modelAttribute="item">
 		<div>
-			<form:label path="item">Add item</form:label>
-			<form:input path="item" />
-			<form:errors path="item" />
+			<form:label path="content">Add item</form:label>
+			<form:input path="content" />
+			<form:errors path="content" />
 		</div>
 		<input type="submit" value="->" />
 	</form:form>
@@ -23,19 +23,19 @@
 			<th>Item</th>
 			<th>Action</th>
 		</tr>
-		<c:if test="${isEmpty=false}">
+		<c:if test="${isEmpty==false}">
 			<c:forEach items="${items}" var="item">
 				<tr>
 					<td><h1>${item.content}</h1></td>
-					<td><a href="/todo/${todo.id}/remove/${item.id}">Remove</a></td>
+					<td><a href="/todo/${toDo.id}/remove/${item.id}">Remove</a></td>
 			</c:forEach>
 		</c:if>
-		<c:otherwise>
+		<c:if test="${isEmpty==true}">
 			<tr>
 				<td>No items yet!</td>
 				<td>Add an item</td>
 			</tr>
-		</c:otherwise>
+		</c:if>
 	</table>
 </body>
 </html>

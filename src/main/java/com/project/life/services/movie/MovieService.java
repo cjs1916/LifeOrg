@@ -40,4 +40,9 @@ public class MovieService {
 		return movies;
 	}
 
+	public void deleteMovie(Movie movie) {
+		movieRepository.delete(movie);
+		
+	}
+
 }

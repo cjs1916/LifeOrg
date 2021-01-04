@@ -21,21 +21,23 @@
 	<div class="container">
 		<div class="jumbotron">
 			<h3 class="text-center">My movies</h3>
-							<c:if test="${isEmpty==false}">
-					<c:forEach items="${movies}" var="movie">
-						<div class="col-md-3">
-							<div class="well text-center">
-								<img src="${movie.poster}">
-								<h5>${movie.title}</h5>
-								<a onclick="movieSelected('${movie.imdbId}')"
-									class="btn btn-primary" href="#">Movie Details</a>
-							</div>
+			<c:if test="${isEmpty==false}">
+				<c:forEach items="${movies}" var="movie">
+					<div class="col-md-3">
+						<div class="well text-center">
+							<img src="${movie.poster}">
+							<h5>${movie.title}</h5>
+							<a onclick="movieSelected('${movie.imdbId}')"
+								class="btn btn-primary" href="#">Movie Details</a>
+								<a href="/movies/unfavorite/${movie.id}"  class="btn btn-primary">Remove</a>
 						</div>
-					</c:forEach>
-				</c:if>
-				<c:if test="${isEmpty==true}">
-							<h3>No favorites yet!</h3>
-				</c:if>
+
+					</div>
+				</c:forEach>
+			</c:if>
+			<c:if test="${isEmpty==true}">
+				<h3>No favorites yet!</h3>
+			</c:if>
 		</div>
 	</div>
 	<div class="container">

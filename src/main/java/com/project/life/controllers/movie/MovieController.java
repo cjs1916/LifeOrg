@@ -1,6 +1,6 @@
 package com.project.life.controllers.movie;
 
-import java.util.List;
+import java.util.List; 
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -8,13 +8,14 @@ import javax.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.project.life.models.movie.Movie;
-import com.project.life.models.todo.ToDo;
 import com.project.life.models.user.User;
 import com.project.life.services.movie.MovieService;
 import com.project.life.services.user.UserService;
@@ -44,7 +45,17 @@ public class MovieController {
 	}
 
 	@RequestMapping("/details")
-	public String movieDetails(@ModelAttribute("movie") Movie movie, BindingResult result) {
+	public String movieDetails(@ModelAttribute("movie") Movie movie, BindingResult result,HttpSession session,Model model) {
+		Long userId = (Long) session.getAttribute("userId");
+		User user = userService.findUserById(userId);
+		List<Movie> movies = user.getMovies();
+		Boolean isFavorited=false;
+		for( int i=0;i<movies.size();i++) {
+			if(movies.get(i)==movie) {
+					isFavorited = true;
+			}
+		}
+		model.addAttribute("isFavorited", isFavorited);
 			return "movie/movie_details.jsp";
 	}
 
@@ -59,4 +70,19 @@ public class MovieController {
 		userService.saveUser(user);
 		return "redirect:/movies";
 	}
+	
+	@GetMapping("/unfavorite/{id}")
+	public String unfavorite(@ModelAttribute("movie") Movie movie, @PathVariable("id")Long id, HttpSession session) {
+		Long userId = (Long) session.getAttribute("userId");
+		User user = userService.findUserById(userId);
+		Movie m = movieService.findMovieById(id);
+		List<Movie> movies = user.getMovies();
+		movies.remove(m);
+//		movieService.deleteMovie(m);
+		user.setMovies(movies);
+		userService.saveUser(user);
+		return "redirect:/movies";
+	}
+
+	
 }
