@@ -6,3 +6,21 @@
 	font-family: Poppins;
 	font-weight: 700;
 }
+
+#loginImg {
+	display: block;
+}
+
+#imgDisplay {
+	display: block;
+}
+
+@media screen and (max-width:991px) {
+	#imgDisplay {
+		display: none;
+	}
+	
+	#loginImg {
+		display: none;
+	}
+}

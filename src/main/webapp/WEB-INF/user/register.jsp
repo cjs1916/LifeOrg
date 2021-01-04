@@ -16,14 +16,14 @@
 		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 	</head>
 	
-	<body style="background-color: #f8f8f8 ">
+	<body style="background-color: #f8f8f8">
 		
-		<div class="col-8 mx-auto my-3 shadow-sm p-3 mb-5 bg-white rounded" style="background-color: white;">
+		<div class="col-8 mx-auto my-5 shadow-sm p-3 mb-5 bg-white rounded" style="background-color: white;">
 			<div class="register text-center">
 				<h1>Sign Up</h1>
 			</div>
-			<div class="d-flex justify-content-between">
-				<form:form class="col-5" action="registration" method="post" modelAttribute="user">
+			<div class="d-flex justify-content-between p-2">
+				<form:form class="col-lg-5 col-sm-12 col-md-12" action="registration" method="post" modelAttribute="user">
 					<div class="form-group">
 						<div>
 							<form:label path="firstName">First Name</form:label>
@@ -36,14 +36,15 @@
 							<form:input path="lastName" class="form-control border-top-0 border-left-0 border-right-0 rounded-0 mb-3"/>
 						</div>
 						
-						<div class="d-flex justify-content-start align-items-end">
-							<div class="col-10">
+						<div class="d-flex justify-content-start align-items-center">
+							<div class="col-8">
 								<form:label path="city">City</form:label>
 								<form:errors class="text-danger" path="city" />
 								<form:input path="city" class="form-control border-top-0 border-left-0 border-right-0 rounded-0 mb-3"/>
 							</div>
 							
-							<form:select class="form-control col-2" path="state">
+							<form:select class="form-control col-5 col-md-4" path="state">
+								<form:label path="state">State</form:label>
 								<option value="AL">AL</option>
 								<option value="AK">AK</option>
 								<option value="AZ">AZ</option>
@@ -119,10 +120,14 @@
 					</div>
 				</form:form>
 				<div class="signup-image mt-5 mr-5">
-                	<figure><img src="/img/signupin/signup-image.jpg" alt="sing up image"></figure>
-                    <a href="/login" class="text-success"><u><strong>I am already a member</strong></u></a>
+                	<figure><img src="/img/signupin/signup-image.jpg" id="imgDisplay" alt="sing up image"></figure>
+                    
                 </div>
 			</div>
+			<div class="d-flex justify-content-end">
+				<a href="/login" class="text-success"><u><strong>I am already a member</strong></u></a>
+			</div>
+			
 		</div>
 		
 		

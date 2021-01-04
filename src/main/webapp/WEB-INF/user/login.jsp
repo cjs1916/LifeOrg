@@ -15,12 +15,12 @@
 	
 	<body style="background-color: #f8f8f8 ">
 		
-		<div class="col-8 mx-auto my-3 shadow-sm p-3 mb-5 bg-white rounded" style="background-color: white;">
+		<div class="col-8 mx-auto my-5 shadow-sm p-3 mb-5 bg-white rounded" style="background-color: white;">
 			<div class="register text-center">
 				<h1>Log in</h1>
 			</div>
 			<div class="d-flex justify-content-between">
-				<form class="col-5" method="post" action="/login">
+				<form class="col-5 col-md-12 col-sm-12" method="post" action="/login">
 					<div class="form-group">
 						<p class="text-danger"><c:out value="${error}" /></p>
 						<div>
@@ -35,10 +35,13 @@
 						
 						<input type="submit" value="Log in" class="btn btn-primary my-3"/>
 					</div>
-					<a href="/" class="text-success"><u><strong>Create an account</strong></u></a>
+					<div class="d-flex justify-content-end" >
+						<a href="/" class="text-success"><u><strong>Create an account</strong></u></a>
+					</div>
+					
 				</form>
 				<div class="signup-image mt-5 mr-5">
-                	<figure><img src="/img/signupin/signin-image.jpg" alt="sing in image"></figure>
+                	<figure><img src="/img/signupin/signin-image.jpg" id="loginImg" alt="sing in image"></figure>
                 </div>
 			</div>
 		</div>
