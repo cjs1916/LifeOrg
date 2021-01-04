@@ -51,7 +51,7 @@ public class RoomController {
 	public String chatRoom(@PathVariable("id") Long id, @ModelAttribute("message") Message message, Model model, HttpSession session) {
 		List<Room> allRooms = rServ.allRooms();
 		Room thisRoom = rServ.findRoom(id);
-		Long thisUserId = (Long) session.getAttribute("user_id");
+		Long thisUserId = (Long) session.getAttribute("userId");
 		User thisUser = uServ.findUserById(thisUserId);
 		model.addAttribute("user", thisUser);
 		model.addAttribute("thisRoom", thisRoom);
@@ -61,7 +61,7 @@ public class RoomController {
 	
 	@RequestMapping(value="/rooms/{room_id}/message", method=RequestMethod.POST)
 	public String sendMessage(@PathVariable("room_id") Long roomId, @ModelAttribute("message") Message message, HttpSession session) {
-		Long userId = (Long) session.getAttribute("user_id");
+		Long userId = (Long) session.getAttribute("userId");
 		Room thisRoom = rServ.findRoom(roomId);
 		User thisUser = uServ.findUserById(userId);
 		String content = message.getContent();

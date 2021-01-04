@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Calendar</title>
 <link rel="stylesheet" type="text/css" href="/css/styleChat.css">
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
@@ -18,65 +18,90 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div class="container">
-    <h3 class=" text-center">Messaging</h3>
-    <div class="messaging">
-      <div class="inbox_msg">
-        <div class="inbox_people">
-          <div class="headind_srch">
-            <div class="recent_heading">
-              <h4>Chat Rooms</h4>
-            </div>
-          </div>
-          <div class="inbox_chat">
-          	<c:forEach var="room" items="${allRooms}">
-	            <div class="chat_list active_chat">
-	              <div class="chat_people">
-	                <div class="chat_img"> <img src="https://cdn3.iconfinder.com/data/icons/text-messaging-3/512/6-512.png" alt="user"> </div>
-	                <div class="chat_ib">
-	                  <h5><a href="/rooms/${room.id}" class="fill-div">${room.roomName}</a></h5>
-	                </div>
-	              </div>
+
+	<div class="header">
+		<img class="brandIcon" src="img/icon.png">
+		
+		<!-- nav links -->
+		<ul class="nav-links">
+	           <li><a href="/dashboard">Home</a></li>
+	           <li><a href="/rooms">Chat</a>
+	           <li><a href="/events">Calendar</a></li>
+	           <li><a href="#">Notes</a></li>
+	           <li><a href="/todo">Lists</a></li>
+	           <li><a href="/movies">Movies</a></li>
+	           <li><a href="#">Weather</a></li>
+	           <li><a href="/logout">Logout</a></li>
+	       </ul>
+	       
+	       <!-- burger icon for mobile devices -->
+	       <div class="burger">
+	           <div class="line1"></div>
+	           <div class="line2"></div>
+	           <div class="line3"></div>
+	       </div>
+	</div>
+	<div class="container">
+	    <h3 class=" text-center">Messaging</h3>
+	    <div class="messaging">
+	      <div class="inbox_msg">
+	        <div class="inbox_people">
+	          <div class="headind_srch">
+	            <div class="recent_heading">
+	              <h4>Chat Rooms</h4>
 	            </div>
-            </c:forEach>
-          </div>
-        </div>
-        <div class="mesgs" style="text-align: center; ">
-          <button type="button" class="btn btn-link" style="line-height:500px;" data-toggle="modal" style="background-color: transparent;" data-target="#exampleModal">+Create Chat Room</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel"></h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form:form action="/rooms/new" method="post" modelAttribute="room">
-          <div class="form-group">
-            <form:label path="roomName" for="roomName" class="col-form-label">Chat Room Name:</form:label>
-            <form:input type="text" path="roomName" class="form-control"/>
-            <form:errors path="roomName"/>
-          </div>
-          <div class="modal-footer">
-	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-	        <button type="submit" class="btn btn-primary">Create Room</button>
-      	  </div>
-        </form:form>
-      </div>
-    </div>
-  </div>
-</div>
-<script type="text/javascript">
-	    $('#exampleModal').on('show.bs.modal', function (event) {
-	    	  var button = $(event.relatedTarget) // Button that triggered the modal
-	    })
-</script>
+	          </div>
+	          <div class="inbox_chat">
+	          	<c:forEach var="room" items="${allRooms}">
+		            <div class="chat_list active_chat">
+		              <div class="chat_people">
+		                <div class="chat_img"> <img src="https://cdn3.iconfinder.com/data/icons/text-messaging-3/512/6-512.png" alt="user"> </div>
+		                <div class="chat_ib">
+		                  <h5><a href="/rooms/${room.id}" class="fill-div">${room.roomName}</a></h5>
+		                </div>
+		              </div>
+		            </div>
+	            </c:forEach>
+	          </div>
+	        </div>
+	        <div class="mesgs" style="text-align: center; ">
+	          <button type="button" class="btn btn-link" style="line-height:500px;" data-toggle="modal" style="background-color: transparent;" data-target="#exampleModal">+Create Chat Room</button>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	  
+	  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="exampleModalLabel"></h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	        <form:form action="/rooms/new" method="post" modelAttribute="room">
+	          <div class="form-group">
+	            <form:label path="roomName" for="roomName" class="col-form-label">Chat Room Name:</form:label>
+	            <form:input type="text" path="roomName" class="form-control"/>
+	            <form:errors path="roomName"/>
+	          </div>
+	          <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		        <button type="submit" class="btn btn-primary">Create Room</button>
+	      	  </div>
+	        </form:form>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	
+	<script src="js/dashboard.js"></script>
+	<script type="text/javascript">
+		    $('#exampleModal').on('show.bs.modal', function (event) {
+		    	  var button = $(event.relatedTarget) // Button that triggered the modal
+		    })
+	</script>
 </body>
 </html>
