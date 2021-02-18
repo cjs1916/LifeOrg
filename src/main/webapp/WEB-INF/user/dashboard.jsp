@@ -23,10 +23,8 @@
 	            <li><a href="/dashboard">Home</a></li>
 	            <li><a href="/rooms">Chat</a>
 	            <li><a href="/events">Calendar</a></li>
-	            <li><a href="#">Notes</a></li>
-	            <li><a href="/todo">Lists</a></li>
+	            <li><a href="#">Lists (Coming soon)</a></li>
 	            <li><a href="/movies">Movies</a></li>
-	            <li><a href="#">Weather</a></li>
 	            <li><a href="/logout">Logout</a></li>
 	        </ul>
 	        
@@ -103,9 +101,9 @@
 		<div class="noteWidget">
 			<h3>${note.title}</h3>
 			<p>${note.content}</p>
-			<div class="d-flex justify-content-end">
-				<input type="button" data-toggle="modal" data-target="#exampleModal2" class="btn btn-outline-dark" value="Edit" />
-			</div>
+			<!-- <div class="d-flex justify-content-end">
+				<input type="button" data-toggle="modal" data-target="#exampleModal2" class="btn btn-outline-dark" value="Delete" />
+			</div> -->
 		</div>
 		</c:forEach>
 	

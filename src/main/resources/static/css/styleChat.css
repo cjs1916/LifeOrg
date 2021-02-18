@@ -10,6 +10,7 @@
 
 .header {
 	width: 100vw;
+	height:15vh;
 	display:flex;
 	justify-content:space-between;
 	align-items: center;
@@ -55,8 +56,7 @@ nav {
 }
 
 .burger {
-    display: none;
-    cursor: pointer;
+   cursor: pointer;
 }
 
 .burger div {
@@ -106,6 +106,14 @@ body {
         opacity: 1;
         tranform: translateX(0px);
     }
+}
+
+.brandIcon {
+	height:50px;
+}
+
+.menuIcon {
+	height: 50px;
 }
 
 .container{max-width:1170px; margin:auto;}

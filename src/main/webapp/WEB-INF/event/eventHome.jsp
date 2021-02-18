@@ -26,10 +26,8 @@
 	            <li><a href="/dashboard">Home</a></li>
 	            <li><a href="/rooms">Chat</a>
 	            <li><a href="/events">Calendar</a></li>
-	            <li><a href="#">Notes</a></li>
-	            <li><a href="/todo">Lists</a></li>
+	            <li><a href="#">Lists (Coming soon)</a></li>
 	            <li><a href="/movies">Movies</a></li>
-	            <li><a href="#">Weather</a></li>
 	            <li><a href="/logout">Logout</a></li>
 	        </ul>
 	        

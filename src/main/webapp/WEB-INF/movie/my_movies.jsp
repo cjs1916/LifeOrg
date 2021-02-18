@@ -11,13 +11,38 @@
 <link rel="stylesheet" type="text/css" href="/css/moviestyle.css">
 </head>
 <body>
-	<nav class="navbar navbar-default">
+
+	<div class="header">
+			<img class="brandIcon" src="img/icon.png">
+			
+			<!-- nav links -->
+			<ul class="nav-links">
+	            <li><a href="/dashboard">Home</a></li>
+	            <li><a href="/rooms">Chat</a>
+	            <li><a href="/events">Calendar</a></li>
+	            <li><a href="#">Lists (Coming soon)</a></li>
+	            <li><a href="/movies">Movies</a></li>
+	            <li><a href="/logout">Logout</a></li>
+	        </ul>
+	        
+	        <!-- burger icon for mobile devices -->
+	        <div class="burger">
+	            <div class="line1"></div>
+	            <div class="line2"></div>
+	            <div class="line3"></div>
+	        </div>
+		</div>
+		
+		<div class="emptyDiv"></div>
+		
+	<!--<nav class="navbar navbar-default">
 		<div class="container">
 			<div class="navbar-header">
 				<a class="navbar-brand" href="/movies">Movie Search</a>
 			</div>
 		</div>
-	</nav>
+	</nav> -->
+	
 	<div class="container">
 		<div class="jumbotron">
 			<h3 class="text-center">My movies</h3>
@@ -59,6 +84,7 @@
 		crossorigin="anonymous"></script>
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	<script src="/js/moviescript.js"></script>
+	<script src="js/dashboard.js"></script>
 </body>
 </body>
 </html>

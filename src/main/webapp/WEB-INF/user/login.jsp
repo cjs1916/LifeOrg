@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page import="java.io.*,java.util.*"%>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -18,6 +19,14 @@
 		<div class="col-8 mx-auto my-5 shadow-sm p-3 mb-5 bg-white rounded" style="background-color: white;">
 			<div class="register text-center">
 				<h1>Log in</h1>
+				<div class="border d-flex flex-column align-items-center">
+					<p>New to life organizer?</p>
+					<form action="guest" method="post">
+						<input type="hidden" name="email" value="guest@guest.com"/>
+						<input type="hidden" name="password" value="guest"/>
+						<button class="btn btn-secondary">Click to demo</button>
+					</form>
+				</div>
 			</div>
 			<div class="d-flex justify-content-between">
 				<form class="col-5 col-md-12 col-sm-12" method="post" action="/login">

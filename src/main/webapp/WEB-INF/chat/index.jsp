@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Calendar</title>
+<title>Chat Rooms</title>
 <link rel="stylesheet" type="text/css" href="/css/styleChat.css">
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
@@ -18,20 +18,19 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
+
 <body style="background-color: #f8f8f8">
 
 	<div class="header">
-		<img class="brandIcon" src="img/icon.png">
+		<img class="brandIcon" src="/img/icon.png">
 		
 		<!-- nav links -->
 		<ul class="nav-links">
 	           <li><a href="/dashboard">Home</a></li>
 	           <li><a href="/rooms">Chat</a>
 	           <li><a href="/events">Calendar</a></li>
-	           <li><a href="#">Notes</a></li>
-	           <li><a href="/todo">Lists</a></li>
+	           <li><a href="#">Lists (coming soon)</a></li>
 	           <li><a href="/movies">Movies</a></li>
-	           <li><a href="#">Weather</a></li>
 	           <li><a href="/logout">Logout</a></li>
 	       </ul>
 	       
@@ -42,6 +41,7 @@
 	           <div class="line3"></div>
 	       </div>
 	</div>
+	
 	<div class="container">
 	    <h3 class=" text-center">Messaging</h3>
 	    <div class="messaging">
@@ -98,11 +98,7 @@
 	  </div>
 	</div>
 	
-	<script src="js/dashboard.js"></script>
-	<script type="text/javascript">
-		    $('#exampleModal').on('show.bs.modal', function (event) {
-		    	  var button = $(event.relatedTarget) // Button that triggered the modal
-		    })
-	</script>
+	<script src="/js/dashboard.js"></script>
+	
 </body>
 </html>

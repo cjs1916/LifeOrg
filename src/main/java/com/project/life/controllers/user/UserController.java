@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -38,6 +39,20 @@ public class UserController {
 	@RequestMapping("/login")
 	public String loginPage() {
 		return "user/login.jsp";
+	}
+	
+	// guest user demo
+	@PostMapping("/guest")
+	public String guestDemo(@RequestParam("email") String email, @RequestParam("password") String password, Model model, HttpSession session) {
+		boolean isAuth = userService.authenticateUser(email, password);
+		if (isAuth) {
+			User userLog = userService.findByEmail(email);
+			session.setAttribute("userId", userLog.getId());
+			return "redirect:/dashboard";
+		} else {
+			model.addAttribute("error", "Invalid email/password. Try again.");
+			return "/user/login.jsp";
+		}
 	}
 
 	

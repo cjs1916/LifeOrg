@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Chat Rooms</title>
 <link rel="stylesheet" type="text/css" href="/css/styleChat.css">
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
@@ -18,7 +18,30 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 </head>
+
 <body style="background-color: #f8f8f8">
+
+	<div class="header">
+			<img class="brandIcon" src="/img/icon.png">
+			
+			<!-- nav links -->
+			<ul class="nav-links">
+	            <li><a href="/dashboard">Home</a></li>
+	            <li><a href="/rooms">Chat</a>
+	            <li><a href="/events">Calendar</a></li>
+	            <li><a href="#">Lists (Coming soon)</a></li>
+	            <li><a href="/movies">Movies</a></li>
+	            <li><a href="/logout">Logout</a></li>
+	        </ul>
+	        
+	        <!-- burger icon -->
+	        <div class="burger">
+	            <div class="line1"></div>
+	            <div class="line2"></div>
+	            <div class="line3"></div>
+	        </div>
+		</div>
+	
 <div class="container">
 	<div class="d-flex justify-content-between">
 	    <h3 class="text-center"><c:out value="${thisRoom.roomName}"/></h3>
@@ -100,5 +123,7 @@
       </div>
     </div>
   </div>
+  <script src="/js/dashboard.js"></script>
+
 </body>
 </html>

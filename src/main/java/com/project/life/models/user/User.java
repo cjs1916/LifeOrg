@@ -114,7 +114,13 @@ public class User {
     }
 	
 	
-	
+//	public User(Long id, String email, String password, String city, String state) {
+//		this.id = 1000;
+//		this.email = 'guest@guest.com';
+//		this.password = 'guest';
+//		this.city = 'Minneapolis';
+//		this.state = 'MN';
+//	}
 	
 	
     public String getCity() {
